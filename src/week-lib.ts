@@ -1,5 +1,12 @@
 
 
+function resetDay(day: Date | string) {
+    var date = new Date(day)
+    for (var m of ['Hours', 'Minutes', 'Seconds', 'Milliseconds'])
+        (date as any)['set' + m](0)
+    return date
+}
+
 
 /**
  * Generate dates back in time
@@ -9,7 +16,7 @@
  */
 function prependWeeks(startDate: Date | string | 'today', numWeeks: number = 10) {
     var data: Date[][] = []
-    var argDate = new Date(startDate == 'today' ? new Date : startDate)
+    var argDate = startDate == 'today' ? resetDay(new Date) : new Date(startDate)
     var day0 = new Date(argDate.getTime() - (1000 * 60 * 60 * 24)) // Subtract one day
     for (var i = 0; i < numWeeks; i++) {
         var tmp: Date[] = []
@@ -29,7 +36,7 @@ function prependWeeks(startDate: Date | string | 'today', numWeeks: number = 10)
  */
 function appendWeeks(startDate: Date | string | 'today', numWeeks: number = 10) {
     var data: Date[][] = []
-    var argDate = new Date(startDate == 'today' ? new Date : startDate)
+    var argDate = startDate == 'today' ? resetDay(new Date) : new Date(startDate)
     var day0 = new Date(argDate.getTime() + (1000 * 60 * 60 * 24)) // Add one day
 
     for (var i = 0; i < numWeeks; i++) {
@@ -47,7 +54,7 @@ function appendWeeks(startDate: Date | string | 'today', numWeeks: number = 10) 
 
 function generateInitialWeeks(startDate: Date | string | 'today', numWeeks: number = 8) {
 
-    var today = new Date(startDate == 'today' ? new Date : startDate)
+    var today = startDate == 'today' ? resetDay(new Date) : new Date(startDate)
     var firstDayOfThisWeek = computeFirstDayOfWeek(today)
     var after = appendWeeks(new Date(firstDayOfThisWeek.getTime() - (1000 * 60 * 60 * 24)), numWeeks) // Subtract one day
     // var after = appendWeeks(dayjs(firstDayOfThisWeek).subtract(1, 'day').toDate())

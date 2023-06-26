@@ -10,9 +10,15 @@
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.WEEK_LIB = void 0;
+    function resetDay(day) {
+        var date = new Date(day);
+        for (var m of ['Hours', 'Minutes', 'Seconds', 'Milliseconds'])
+            date['set' + m](0);
+        return date;
+    }
     function prependWeeks(startDate, numWeeks = 10) {
         var data = [];
-        var argDate = new Date(startDate == 'today' ? new Date : startDate);
+        var argDate = startDate == 'today' ? resetDay(new Date) : new Date(startDate);
         var day0 = new Date(argDate.getTime() - (1000 * 60 * 60 * 24));
         for (var i = 0; i < numWeeks; i++) {
             var tmp = [];
@@ -26,7 +32,7 @@
     }
     function appendWeeks(startDate, numWeeks = 10) {
         var data = [];
-        var argDate = new Date(startDate == 'today' ? new Date : startDate);
+        var argDate = startDate == 'today' ? resetDay(new Date) : new Date(startDate);
         var day0 = new Date(argDate.getTime() + (1000 * 60 * 60 * 24));
         for (var i = 0; i < numWeeks; i++) {
             var tmp = [];
@@ -39,7 +45,7 @@
         return data;
     }
     function generateInitialWeeks(startDate, numWeeks = 8) {
-        var today = new Date(startDate == 'today' ? new Date : startDate);
+        var today = startDate == 'today' ? resetDay(new Date) : new Date(startDate);
         var firstDayOfThisWeek = computeFirstDayOfWeek(today);
         var after = appendWeeks(new Date(firstDayOfThisWeek.getTime() - (1000 * 60 * 60 * 24)), numWeeks);
         var before = prependWeeks(firstDayOfThisWeek, numWeeks);
