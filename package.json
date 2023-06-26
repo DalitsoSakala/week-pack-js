@@ -1,0 +1,25 @@
+{
+  "name": "week-lib",
+  "version": "1.0.0",
+  "description": "Generate an array containing arrays of seven items representing a day of the week",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/electronic-jedi/week-lib-js.git"
+  },
+  "keywords": [
+    "week",
+    "day",
+    "date",
+    "calendar"
+  ],
+  "author": "Electronic Jedi Authors <https://github.com/electronic-jedi.git>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/electronic-jedi/week-lib-js/issues"
+  },
+  "homepage": "https://github.com/electronic-jedi/week-lib-js#readme"
+}
