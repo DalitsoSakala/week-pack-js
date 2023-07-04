@@ -1,25 +1,26 @@
 {
-  "name": "week-lib",
+  "name": "@jsnodor/week-pack",
   "version": "1.0.0",
-  "description": "Generate an array containing arrays of seven items representing a day of the week",
-  "main": "index.js",
+  "description": "Utilities to generate arrays made of date objects grouped into 7 items to form a week",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo Generate weeks!"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/electronic-jedi/week-lib-js.git"
+    "url": "git+https://github.com/dalitsosakala/week-pack-js.git"
   },
   "keywords": [
-    "week",
-    "day",
-    "date",
-    "calendar"
+    "Date",
+    "Week",
+    "Calendar",
+    "Time",
+    "Utility"
   ],
-  "author": "Electronic Jedi Authors <https://github.com/electronic-jedi.git>",
+  "author": "Dalitso Sakala <https://dalitsosakala.github.io>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/electronic-jedi/week-lib-js/issues"
+    "url": "https://github.com/dalitsosakala/week-pack-js/issues"
   },
-  "homepage": "https://github.com/electronic-jedi/week-lib-js#readme"
+  "homepage": "https://github.com/dalitsosakala/week-pack-js#readme"
 }

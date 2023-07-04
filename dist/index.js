@@ -1,15 +1,5 @@
-(function (factory) {
-    if (typeof module === "object" && typeof module.exports === "object") {
-        var v = factory(require, exports);
-        if (v !== undefined) module.exports = v;
-    }
-    else if (typeof define === "function" && define.amd) {
-        define(["require", "exports"], factory);
-    }
-})(function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.WEEK_LIB = void 0;
+"use strict";
+(function (global) {
     function resetDay(day) {
         var date = new Date(day);
         for (var m of ['Hours', 'Minutes', 'Seconds', 'Milliseconds'])
@@ -57,11 +47,6 @@
             return new Date(d.setDate(diff));
         }
     }
-    const WEEK_LIB = {
-        prependWeeks,
-        appendWeeks,
-        generateInitialWeeks
-    };
-    exports.WEEK_LIB = WEEK_LIB;
-});
-//# sourceMappingURL=week-lib.js.map
+    Object.assign(global, { prependWeeks, appendWeeks, generateInitialWeeks });
+}(this));
+//# sourceMappingURL=index.js.map
