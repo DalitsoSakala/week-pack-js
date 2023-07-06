@@ -80,9 +80,9 @@
         }
     }
 
-
+    let isBrowser=new Function("try {return this===window;}catch(e){ return false;}");
     const members = { prependWeeks, appendWeeks, generateInitialWeeks }
-    if (global.window = global)
+    if (isBrowser())
         Object.assign(global, { WEEK_PACK: members })
     else Object.assign(global, members)
 
