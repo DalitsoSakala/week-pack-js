@@ -1,4 +1,4 @@
-(function (global) {
+(function (global: any) {
 
 
     function resetDay(day: Date | string) {
@@ -81,6 +81,9 @@
     }
 
 
-    Object.assign(global, { prependWeeks, appendWeeks, generateInitialWeeks })
+    const members = { prependWeeks, appendWeeks, generateInitialWeeks }
+    if (global.window = global)
+        Object.assign(global, { WEEK_PACK: members })
+    else Object.assign(global, members)
 
 }(this));

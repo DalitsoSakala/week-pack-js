@@ -2,20 +2,25 @@
 > Generate an array containing arrays of seven items representing a day of the week
 
 ## Usage
+### With Node
 
 ```js
-let { WEEK_LIB } = require('PATH/TO/week-lib/dist/src/week-lib.js')
+let { prependWeeks,appendWeeks } = require('@jsnodor/week-pack')
 // Generate all the days before 'today' up to 2 weeks in the past
-let weeksBeforeToday = WEEK_LIB.prependWeeks('today',2)
+let weeksBeforeToday = prependWeeks('today',2)
 // Generate all the days after 26 January 2022 3 weeks in the future
-let weeksAfter26Jan2022 = WEEK_LIB.appendWeeks(new Date(2022,0,26),3)
+let weeksAfter26Jan2022 = appendWeeks(new Date(2022,0,26),3)
 
 ```
 
-## Example
+## In the browser
+```html
+<!-- In the browser, the global object `WEEK_PACK` exposes the api -->
+<script src="PATH/TO/@jsnodor/week-pack/dist/index.js"></script>
+```
 
 ```js
-WEEK_LIB.prependWeeks('today',2)
+WEEK_PACK.prependWeeks('today',2)
 // Output
 [
   [
@@ -38,7 +43,7 @@ WEEK_LIB.prependWeeks('today',2)
   ]
 ]
 
-WEEK_LIB.appendWeeks('today',1)
+WEEK_PACK.appendWeeks('today',1)
 // Output
 [
   [
